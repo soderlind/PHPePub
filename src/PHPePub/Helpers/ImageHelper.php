@@ -227,7 +227,7 @@ class ImageHelper {
         $ratio = 1;
 
         if ($image !== false && strlen($image) > 0) {
-            if (BinStringStatic::startsWith(trim($image), '<svg') || (BinStringStatic::startsWith(trim($image), '<?xml') || strpos($image, '<svg') > 0)) {
+            if (BinStringStatic::startsWith(trim($image), '<svg') || (BinStringStatic::startsWith(trim($image), '<?xml') && strpos($image, '<svg') > 0)) {
                 // SVG image.
                 $xml = simplexml_load_string($image);
                 $attr = $xml->attributes();
