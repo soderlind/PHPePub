@@ -1,5 +1,5 @@
 {
-    "name": "mytory/phpepub",
+    "name": "soderlind/phpepub",
     "type": "library",
     "description": "Package to create and stream e-books in the ePub 2.0 and 3.0 formats. Forked from Grandt",
     "keywords": ["epub", "e-book"],
