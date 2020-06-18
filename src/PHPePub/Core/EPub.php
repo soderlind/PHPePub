@@ -284,8 +284,9 @@ class EPub {
             $partCount = 0;
             $this->chapterCount++;
 
-            $oneChapter = each($chapter);
-            while ($oneChapter) {
+            // $oneChapter = each($chapter);
+            // while ($oneChapter) {
+			foreach ($chapter as $oneChapter) {
                 /** @noinspection PhpUnusedLocalVariableInspection */
                 list($k, $v) = $oneChapter;
                 if ($this->encodeHTML === true) {
@@ -302,7 +303,8 @@ class EPub {
 
                 $this->opf->addItemRef($partName);
 
-                $oneChapter = each($chapter);
+				// $oneChapter = each($chapter);
+
             }
             $partName = $name . "_1." . $extension;
             $navPoint = new NavPoint(StringHelper::decodeHtmlEntities($chapterName), $partName, $partName);
@@ -2107,7 +2109,7 @@ class EPub {
 
         return true;
     }
-    
+
     /**
      * Finalize and build final ePub structures.
      *
@@ -2164,7 +2166,7 @@ class EPub {
         $tocData .= ">\n";
 
 
-            
+
         // while (list($item, $descriptive) = each($this->referencesOrder)) {
         foreach ($this->referencesOrder as $item => $descriptive) {
             if ($item === "text") {
@@ -2237,7 +2239,7 @@ class EPub {
 
         return $this->ncx->finalizeEPub3($title, $cssFileName);
     }
-    
+
     /**
      * Return the finalized book.
      *
@@ -2290,7 +2292,7 @@ class EPub {
 
         return false;
     }
-    
+
     /**
      * Retrieve an array of file names currently added to the book.
      * $key is the filename used in the book
@@ -2325,7 +2327,7 @@ class EPub {
     function getSplitSize() {
         return $this->splitDefaultSize;
     }
-    
+
     /**
      * @return string
      */
