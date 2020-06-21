@@ -266,7 +266,7 @@ class NavPoint extends AbstractNavEntry {
 
         $nav .= $indent . "<li id=\"" . $this->id . "\"" . $dir . ">\n";
 
-		if ( isset( $dir, $this->label ) ) {
+		if ( ! empty($this->label) )  {
 			if (isset($this->contentSrc)) {
 				$nav .= $indent . "\t<a href=\"" . $this->contentSrc . "\"" . $dir . ">" . $this->label . "</a>\n";
 			} else {
